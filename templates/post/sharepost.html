@@ -1,0 +1,57 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %} Share a post {%endblock%}
+{%block content%}
+
+<style>
+    .asteriskField{
+        color: red;
+    }
+    .share-container{
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            width: 70%;
+            padding: 20px;
+            margin-left: 11em;
+    }
+        #share_header{
+        font-size: 30px;
+        font-family: 'Courier New', Courier, monospace;
+    }
+    @media (max-width:692px) {
+          .share-container{
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            width: 80%;
+            padding: 20px;
+            margin-left: 3.5em;
+    }
+    #share_header{
+        font-size: 24px;
+        font-family: 'Courier New', Courier, monospace;
+    }
+    }
+</style>
+
+<div class="share-container">
+{%if sent%}
+<div class="alert alert-success" role="alert">
+    E-mail successfully sent!!
+    <p>
+        "{{ post.title }}" was successfully sent to {{ form.cleaned_data.to }}.
+    </p>
+</div>
+<!-- <h1>E-mail successfully sent</h1>
+<p>
+"{{ post.title }}" was successfully sent to {{ form.cleaned_data.to }}.
+</p> -->
+{% else %}
+<h1 id="share_header">Share "{{ post.title }}" by e-mail</h1>
+<form method="post">
+{{ form|crispy}}
+{% csrf_token %}
+<button class="btn btn-primary"><a href="">Back</a></button>
+<input class="btn btn-secondary" type="submit" value="Share">
+</form>
+{% endif %}
+</div>
+{% endblock %}

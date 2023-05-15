@@ -1,0 +1,102 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<style>
+    .newpost-form{
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        background-color: #fff;
+        width: fit-content;
+        padding: 50px;
+        position: relative;
+        left: 23em;
+        border-radius: 5px;
+    }
+    textarea {
+		outline: none;
+		border: none;
+		padding: 10px;
+		font-size: 16px;
+		line-height: 1.5;
+		width: 80%;
+		height: 150px;
+        resize: vertical;
+    }
+    input[type=text]{
+        outline: none;
+		border: none;
+    }
+
+    label{
+        display: none;
+    }
+  select {
+  padding: 10px;
+  color: #818080;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+  outline: none;
+  width: 100%;
+  appearance: none;
+
+}
+
+
+option {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #fff;
+  color: #818080;
+}
+
+option:hover {
+  background-color: #ccc;
+  color: #fff;
+} 
+small{
+    color: red;
+}
+.btn{
+    border-radius: 15px;
+}
+
+/* For Chrome, Edge, and Safari */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #68756f;
+  border-radius: 20px;
+  border: 3px solid #f1f1f1;
+}
+
+/* For Firefox */
+/** scrollbar-width: thin;
+scrollbar-color: #888 #f1f1f1; **/
+
+/* For IE and Edge */
+/** -ms-overflow-style: none;
+scrollbar-width: thin;
+scrollbar-color: #888 #f1f1f1; **/
+
+</style>
+
+
+<div class="newpost-form">
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    {{request.user}}
+    <small>Note: kindly select a keyword from above</small>
+    <br><br>
+     <a href="" class="btn btn-secondary" >Back</a>
+    <input class="btn btn-success" type="submit" value="Publish">
+</form>
+</div>
+{% endblock content %}
