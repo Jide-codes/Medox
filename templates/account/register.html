@@ -25,7 +25,12 @@
 
 
 </head>
-
+<style>
+  small{
+    color: red;
+    font-size: 11px;
+  }
+</style>
 <body>
 
   <main>
@@ -55,6 +60,7 @@
                       <label for="Email" class="form-label">Email</label>
                       {{auth_form.email}}
                       <div class="invalid-feedback">Please enter a valid Email adddress!</div>
+                      <small>kindly enter a valid Email</small>
                     </div>
 
                     <div class="col-12">
@@ -70,6 +76,7 @@
                       <label for="yourPassword" class="form-label">Password</label>
                       {{auth_form.password1}}
                       <div class="invalid-feedback">Please enter your password!</div>
+                      <small>your password should contain abc, @!$ and 123</small>
                     </div>
 
                     <div class="col-12">
@@ -99,7 +106,7 @@
     </div>
   </main><!-- End #main -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
 
   <!-- Vendor JS Files -->
  
