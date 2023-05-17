@@ -25,6 +25,11 @@
             padding: 20px;
             margin-left: 3.5em;
     }
+    @media (max-width:375px) {
+          .share-container{
+            margin-left: 2.3em;
+    }
+
     #share_header{
         font-size: 24px;
         font-family: 'Courier New', Courier, monospace;
@@ -49,8 +54,7 @@
 <form method="post">
 {{ form|crispy}}
 {% csrf_token %}
-<button class="btn btn-primary"><a href="">Back</a></button>
-<input class="btn btn-secondary" type="submit" value="Share">
+<input class="btn btn-outline-success" type="submit" value="Share">
 </form>
 {% endif %}
 </div>
