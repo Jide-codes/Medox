@@ -189,8 +189,9 @@ scrollbar-color: #888 #f1f1f1; **/
 
 	<div id="comment-section">	
 	<h2> Responses({% with comments.count as total_comments %}
-	{{total_comments}}
-	{% endwith %}) <a id="close-comment-section" onclick="hideCommentSection()">X</a> </h2>
+	{{total_comments}} 
+	{% endwith %}) <br><br>
+	<a id="close-comment-section" onclick="hideCommentSection()">X</a> </h2>
 	<br>
 	<div class="add-comment">
 		{% if request.user.avatarUrl %}
@@ -228,11 +229,14 @@ scrollbar-color: #888 #f1f1f1; **/
 			{{comment.body|linebreaks}}
 		</div>
 		<hr>
+	
 		{% empty %}
 		<p>There are no comment yet. </p>
 		{% endfor %}
 	</div>
-</div>
+			
+
+
 
 <!-- End Article\
 ================================================== -->

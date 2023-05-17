@@ -85,6 +85,22 @@ scrollbar-color: #888 #f1f1f1; **/
 scrollbar-width: thin;
 scrollbar-color: #888 #f1f1f1; **/
 
+@media (max-width:692px){
+		.newpost-form{
+        padding:20px;
+        left: 1.5em;
+        
+    }
+		}
+
+    @media (max-width:375px){
+		.newpost-form{
+        padding:10px;
+        left: 0.3em;
+        width: fit-content;
+        
+    }
+		}
 </style>
 
 
@@ -92,7 +108,6 @@ scrollbar-color: #888 #f1f1f1; **/
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{form.as_p}}
-    {{request.user}}
     <small>Note: kindly select a keyword from above</small>
     <br><br>
      <a href="" class="btn btn-secondary" >Back</a>
